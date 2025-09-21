@@ -39,7 +39,7 @@ public class LibraryController {
             throw BorrowerNotFoundException.notFound(ErrorReason.BOOK_NOT_FOUND, borrowRequest.getBookId());
         }
         if (borrowRecordService.findBorrowRecord(borrowRequest.getBorrowerId(), book.getIsbn()).isPresent()) {
-            throw BaseApiException.forbidden(ErrorReason.BORROW_RECORD_NOT_FOUND);
+            throw BaseApiException.forbidden(ErrorReason.BORROW_SAME_BOOK_NOT_ALLOWED);
         }
         if (borrowRecordService.isRequestedBookNotAvailable(borrowRequest.getBookId())) {
             throw BookNotAvailableException.notAvailable(ErrorReason.BOOK_NOT_AVAILABLE);

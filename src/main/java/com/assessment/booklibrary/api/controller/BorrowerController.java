@@ -7,10 +7,9 @@ import com.assessment.booklibrary.service.BorrowerService;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("/api/borrowers")
 @RestController
@@ -25,5 +24,10 @@ public class BorrowerController {
             throw EmailAlreadyExistsException.notAllowed(ErrorReason.EMAIL_ALREADY_EXISTS);
         }
         return borrowerService.registerBorrower(borrower);
+    }
+
+    @GetMapping
+    public List<Borrower> getAll() {
+        return borrowerService.getAllBorrowers();
     }
 }

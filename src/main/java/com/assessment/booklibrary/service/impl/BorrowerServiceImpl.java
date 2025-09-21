@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,7 +29,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 
     @Override
     public Optional<Borrower> findBorrower(String email) {
-        return borrowerRepository.findByEmail(email);
+        return borrowerRepository.findByEmail(email).map(mappers::fromEntity);
     }
 
     @Transactional
@@ -41,5 +42,12 @@ public class BorrowerServiceImpl implements BorrowerService {
         BorrowerEntity savedBorrower = borrowerRepository.save(borrowerEntity);
 
         return mappers.fromEntity(savedBorrower);
+    }
+
+    @Override
+    public List<Borrower> getAllBorrowers() {
+        return borrowerRepository.findAll().stream()
+                .map(mappers::fromEntity)
+                .toList();
     }
 }
