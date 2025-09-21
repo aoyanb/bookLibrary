@@ -1,0 +1,10 @@
+package com.assessment.booklibrary.persistence.repository;
+
+import com.assessment.booklibrary.persistence.entity.BookEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface BookRepository extends JpaRepository<BookEntity, Long> {
+    List<BookEntity> findByIsbn(String isbn);
+}
