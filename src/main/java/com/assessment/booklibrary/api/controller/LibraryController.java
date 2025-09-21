@@ -24,11 +24,6 @@ public class LibraryController {
     @Nonnull
     private final BorrowRecordService borrowRecordService;
 
-    @GetMapping
-    public String hello() {
-        return "Hello from library";
-    }
-
     @PostMapping("/borrow")
     public Book borrowBook(@RequestBody BorrowRequest borrowRequest) {
         if (borrowerService.findBorrower(borrowRequest.getBorrowerId()).isEmpty()) {

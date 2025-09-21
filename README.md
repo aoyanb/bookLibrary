@@ -15,7 +15,6 @@ A Spring Boot project to manage library operations including registering books, 
 
 - Java 17 or above
 - Gradle
-- PostgreSQL (or H2 for testing)
 - IntelliJ IDEA (optional)
 
 ## Getting Started
