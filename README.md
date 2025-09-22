@@ -9,6 +9,7 @@ A Spring Boot project to manage library operations including registering books, 
 - List all books
 - Borrow a book
 - Return a book
+- Integration test for APIs
 - Swagger API documentation
 
 ## Prerequisites
