@@ -21,7 +21,7 @@ A Spring Boot project to manage library operations including registering books, 
 ## Getting Started
 
 To get started, first clone the repository using the command
-`git clone https://github.com/yourusername/library-management.git` and navigate into the project folder with `cd library-management`. 
+`git clone https://github.com/aoyanb/bookLibrary.git`
 
 The project uses Gradle and Docker Compose, so make sure Gradle is installed on your machine or use the included Gradle wrapper, and ensure that Docker is running.
 
